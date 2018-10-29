@@ -16,13 +16,17 @@
 
 package io.grpc.examples.helloworld
 
-import io.grpc.Server
-import io.grpc.ServerBuilder
+import io.grpc.*
 import io.grpc.stub.StreamObserver
 import java.io.File
 import java.io.IOException
 import java.util.logging.Level
 import java.util.logging.Logger
+import io.grpc.netty.shaded.io.netty.handler.ssl.ClientAuth
+import io.grpc.netty.shaded.io.grpc.netty.GrpcSslContexts
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder
+
+
 
 /**
  * Server that manages startup/shutdown of a `Greeter` server.
@@ -40,11 +44,15 @@ class HelloWorldServer {
         val certChain = File("cert/rootCA.crt")
         val key = File("cert/rootCA.pem")
 
-        server = ServerBuilder.forPort(port)
-                .useTransportSecurity(certChain, key)
+        server = NettyServerBuilder.forPort(port)
+                .sslContext(GrpcSslContexts.forServer(certChain, key)
+                        .clientAuth(ClientAuth.REQUIRE)
+                .build())
                 .addService(GreeterImpl())
                 .build()
                 .start()
+
+
         logger.log(Level.INFO, "Server started, listening on {0}", port)
         Runtime.getRuntime().addShutdownHook(object : Thread() {
             override fun run() {

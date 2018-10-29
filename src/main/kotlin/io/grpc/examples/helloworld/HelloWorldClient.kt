@@ -16,11 +16,11 @@
 
 package io.grpc.examples.helloworld
 
-import com.google.auth.oauth2.GoogleCredentials
 import io.grpc.ManagedChannel
-import io.grpc.ManagedChannelBuilder
 import io.grpc.StatusRuntimeException
-import io.grpc.auth.MoreCallCredentials
+import io.grpc.netty.shaded.io.grpc.netty.GrpcSslContexts
+import io.grpc.netty.shaded.io.grpc.netty.NettyChannelBuilder
+import java.io.File
 import java.util.concurrent.TimeUnit
 import java.util.logging.Level
 import java.util.logging.Logger
@@ -31,23 +31,15 @@ import java.util.logging.Logger
 class HelloWorldClient
 /** Construct client for accessing RouteGuide server using the existing channel.  */
 internal constructor(host: String, port: Int) {
-    private lateinit var blockingStub: GreeterGrpc.GreeterBlockingStub
-    private lateinit var channel: ManagedChannel
+    private var blockingStub: GreeterGrpc.GreeterBlockingStub
+    private var channel: ManagedChannel = NettyChannelBuilder.forAddress(host, port)
+            .sslContext(GrpcSslContexts.forClient().keyManager(File("cert/wrong_client.crt"),
+                    File("cert/wrong_client.key")).build())
+            .build()
 
     /** Construct client connecting to HelloWorld server at `host:port`.  */
     init {
-
-//            this(ManagedChannelBuilder.forAddress(host, port))
-            // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
-            // needing certificates.
-//            .useTransportSecurity()
-//            .build()) {
-
-        val creds = GoogleCredentials.getApplicationDefault()
-        channel = ManagedChannelBuilder.forTarget("greeter.googleapis.com")
-                .build()
         blockingStub = GreeterGrpc.newBlockingStub(channel)
-                .withCallCredentials(MoreCallCredentials.from(creds))
     }
 
 
@@ -60,7 +52,7 @@ internal constructor(host: String, port: Int) {
     fun greet(name: String) {
         logger.log(Level.INFO, "Will try to greet {0}...", name)
         val request = HelloRequest.newBuilder().setName(name).build()
-        val response: Sequence<HelloReply> =  try {
+        val response: Sequence<HelloReply> = try {
             blockingStub.sayHello(request).asSequence()
         } catch (e: StatusRuntimeException) {
             logger.log(Level.WARNING, "RPC failed: {0}", e.status)
