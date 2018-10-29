@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.grpc.examples.helloworld.HelloWorldServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-10-19T14:14:44" hostname="Users-MacBook-Pro-2.local" time="0.005">
-  <properties/>
-  <testcase name="greeterImpl_replyMessage" classname="io.grpc.examples.helloworld.HelloWorldServerTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
