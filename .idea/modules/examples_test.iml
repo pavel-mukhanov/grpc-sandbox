@@ -40,13 +40,12 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: com.google.auth:google-auth-library-credential:0.11.0" level="project" />
-    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.21" level="project" />
-    <orderEntry type="library" name="Gradle: io.grpc:grpc-core:1.15.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-protobuf:1.15.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:20.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.auth:google-auth-library-credentials:0.11.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.http-client:google-http-client-jackson2:1.24.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.21" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.http-client:google-http-client:1.24.1" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.21" level="project" />
     <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.5.1" level="project" />
     <orderEntry type="library" name="Gradle: io.grpc:grpc-protobuf-lite:1.15.1" level="project" />
@@ -54,7 +53,7 @@
     <orderEntry type="library" name="Gradle: com.google.auth:google-auth-library-oauth2-http:0.11.0" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Gradle: org.mockito:mockito-core:1.9.5" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.http-client:google-http-client:1.24.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.21" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Gradle: org.objenesis:objenesis:1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
@@ -70,12 +69,13 @@
     <orderEntry type="library" name="Gradle: io.grpc:grpc-testing:1.15.1" level="project" />
     <orderEntry type="library" name="Gradle: io.grpc:grpc-stub:1.15.1" level="project" />
     <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
-    <orderEntry type="library" name="Gradle: io.grpc:grpc-protobuf:1.15.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-core:1.15.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.api.grpc:proto-google-common-protos:1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.6" level="project" />
-    <orderEntry type="library" name="Gradle: io.grpc:grpc-auth:1.15.1" level="project" />
+    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Gradle: io.grpc:grpc-auth:1.15.1" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="examples_main" />
 </module>
