@@ -46,7 +46,7 @@ dependencies {
     compile "javax.annotation:javax.annotation-api:1.2"
     compile 'io.netty:netty-tcnative-boringssl-static:2.0.7.Final'
     compile 'com.google.auth:google-auth-library-oauth2-http:0.11.0'
-    compile 'com.google.auth:google-auth-library-credential:0.11.0'
+    compile 'com.google.auth:google-auth-library-credentials:0.11.0'
 
     testCompile "io.grpc:grpc-testing:${grpcVersion}" // gRCP testing utilities
     testCompile "junit:junit:4.12"
